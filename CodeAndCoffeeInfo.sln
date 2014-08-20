@@ -5,8 +5,30 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FDC2CA8B-DF84-4991-BA2F-D4A82BAE045C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2EE82D6D-3BE6-45E4-BF21-DE79F78ADC27}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB} = {FDC2CA8B-DF84-4991-BA2F-D4A82BAE045C}
 	EndGlobalSection
 EndGlobal
