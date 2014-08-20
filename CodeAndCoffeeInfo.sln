@@ -14,6 +14,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{2EE82D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "src\Core\Core.csproj", "{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "src\DataAccess\DataAccess.csproj", "{339065E8-0A1B-4919-96E9-2F047E0449B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Src\Web\Web.csproj", "{96D5D045-BB40-46F3-945C-4E708C554D50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,11 +28,21 @@ Global
 		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{339065E8-0A1B-4919-96E9-2F047E0449B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{339065E8-0A1B-4919-96E9-2F047E0449B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{339065E8-0A1B-4919-96E9-2F047E0449B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{339065E8-0A1B-4919-96E9-2F047E0449B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96D5D045-BB40-46F3-945C-4E708C554D50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96D5D045-BB40-46F3-945C-4E708C554D50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96D5D045-BB40-46F3-945C-4E708C554D50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96D5D045-BB40-46F3-945C-4E708C554D50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F48BD43B-F052-4B1F-B661-6AA0076A6EAB} = {FDC2CA8B-DF84-4991-BA2F-D4A82BAE045C}
+		{339065E8-0A1B-4919-96E9-2F047E0449B0} = {FDC2CA8B-DF84-4991-BA2F-D4A82BAE045C}
+		{96D5D045-BB40-46F3-945C-4E708C554D50} = {FDC2CA8B-DF84-4991-BA2F-D4A82BAE045C}
 	EndGlobalSection
 EndGlobal
