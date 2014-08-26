@@ -7,8 +7,8 @@
     <ProjectGuid>{339065E8-0A1B-4919-96E9-2F047E0449B0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataAccess</RootNamespace>
-    <AssemblyName>DataAccess</AssemblyName>
+    <RootNamespace>CodeAndCoffeeInfo.DataAccess</RootNamespace>
+    <AssemblyName>CodeAndCoffeeInfo.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
