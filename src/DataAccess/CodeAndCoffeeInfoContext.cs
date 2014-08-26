@@ -12,5 +12,9 @@ namespace CodeAndCoffeeInfo.DataAccess {
 		public CodeAndCoffeeInfoContext() : base("CCI") {
 			
 		}
+
+		// Add DbSets for Root objects here
+		// i.e. 
+		// public DbSet<Item> Items { get; set; }
 	}
 }
