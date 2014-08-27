@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="CodeAndCoffeeInfoContext.cs" />
     <Compile Include="Mappings\CodeAndCoffeeInfoMappingConfiguration.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
