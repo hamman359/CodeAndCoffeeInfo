@@ -3,13 +3,17 @@
 
 namespace Web.App_Start
 {
-    using System;
-    using System.Web;
-
-    using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-
-    using Ninject;
-    using Ninject.Web.Common;
+	using System;
+	using System.Configuration;
+	using System.Web;
+	using CodeAndCoffeeInfo.DataAccess.Mappings;
+	using Common.Logging;
+	using Common.Logging.Serilog;
+	using Highway.Data;
+	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+	using Ninject;
+	using Ninject.Web.Common;
+	using Serilog;
 
     public static class NinjectWebCommon 
     {
@@ -44,6 +48,33 @@ namespace Web.App_Start
             {
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+
+				//This is Highway.Data's Context
+				kernel.Bind<IDataContext>().To<DataContext>()
+					.InRequestScope()
+					.WithConstructorArgument(
+						"connectionString",
+						ConfigurationManager.ConnectionStrings["MvcTestConnection"].ConnectionString); //TODO: Need to Create a Configuration object and move this there.
+
+				//This is Highway.Data's Repository
+				kernel.Bind<IRepository>().To<Repository>().InRequestScope();
+
+				//This is Highway.Data's relational mappings Interface, but YOUR implementation
+				kernel.Bind<IMappingConfiguration>().To<CCIMappingConfiguration>();
+
+				////This is Highway.Data's context configuration, by default use the default :-)
+				kernel.Bind<IContextConfiguration>().To<DefaultContextConfiguration>();
+
+				//This is Common.Loggings log interface, feel free to supply anything that uses it *cough* log4net
+				kernel.Bind<ILogger>()
+					.ToMethod(ctx => new LoggerConfiguration()
+						.ReadAppSettings()
+						.Enrich.WithProperty("Server", "Local")
+						.Enrich.WithMachineName()
+						.CreateLogger())
+					.InSingletonScope();
+
+				kernel.Bind<ILog>().To<SerilogCommonLogger>().InSingletonScope();
 
                 RegisterServices(kernel);
                 return kernel;
