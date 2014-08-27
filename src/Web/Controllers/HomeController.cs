@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Highway.Data;
 
 namespace Web.Controllers {
-	public class HomeController : Controller {
+	public class HomeController : CCIControllerBase {
+
+		public HomeController(IRepository repo) : base(repo) {
+			
+		}
+
 		public ActionResult Index() {
 			return View();
 		}
