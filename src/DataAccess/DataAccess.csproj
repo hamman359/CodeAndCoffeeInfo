@@ -69,8 +69,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeAndCoffeeInfoContext.cs" />
-    <Compile Include="Mappings\CodeAndCoffeeInfoMappingConfiguration.cs" />
+    <Compile Include="CCIContext.cs" />
+    <Compile Include="Mappings\CCIMappingConfiguration.cs" />
     <Compile Include="Migrations\201408270003502_Initialization.cs" />
     <Compile Include="Migrations\201408270003502_Initialization.Designer.cs">
       <DependentUpon>201408270003502_Initialization.cs</DependentUpon>

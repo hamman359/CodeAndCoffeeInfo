@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace CodeAndCoffeeInfo.DataAccess {
 
-	public class CodeAndCoffeeInfoContext : DbContext {
+	public class CCIContext : DbContext {
 
-		public CodeAndCoffeeInfoContext() : base("CCI") {
+		public CCIContext() : base("CCI") {
 			
 		}
 

@@ -9,7 +9,7 @@ using Highway.Data;
 
 namespace CodeAndCoffeeInfo.DataAccess.Mappings {
 
-	public class CodeAndCoffeeInfoMappingConfiguration : IMappingConfiguration {
+	public class CCIMappingConfiguration : IMappingConfiguration {
 		
 		public void ConfigureModelBuilder(DbModelBuilder modelBuilder) {
 
