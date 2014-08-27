@@ -21,7 +21,7 @@ namespace Web.App_Start
 
         /// <summary>
         /// Starts the application
-        /// </summary>
+        /// </summary>source
         public static void Start() 
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
@@ -49,34 +49,12 @@ namespace Web.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-				//This is Highway.Data's Context
-				kernel.Bind<IDataContext>().To<DataContext>()
-					.InRequestScope()
-					.WithConstructorArgument(
-						"connectionString",
-						ConfigurationManager.ConnectionStrings["MvcTestConnection"].ConnectionString); //TODO: Need to Create a Configuration object and move this there.
+				//TODO: Need to break this up into helper methods. One for Highway and one for Serilog
 
-				//This is Highway.Data's Repository
-				kernel.Bind<IRepository>().To<Repository>().InRequestScope();
+				RegisterHighwayFramework(kernel);
 
-				//This is Highway.Data's relational mappings Interface, but YOUR implementation
-				kernel.Bind<IMappingConfiguration>().To<CCIMappingConfiguration>();
+				RegisterLogger(kernel);
 
-				////This is Highway.Data's context configuration, by default use the default :-)
-				kernel.Bind<IContextConfiguration>().To<DefaultContextConfiguration>();
-
-				//This is Common.Loggings log interface, feel free to supply anything that uses it *cough* log4net
-				kernel.Bind<ILogger>()
-					.ToMethod(ctx => new LoggerConfiguration()
-						.ReadAppSettings()
-						.Enrich.WithProperty("Server", "Local")
-						.Enrich.WithMachineName()
-						.CreateLogger())
-					.InSingletonScope();
-
-				kernel.Bind<ILog>().To<SerilogCommonLogger>().InSingletonScope();
-
-                RegisterServices(kernel);
                 return kernel;
             }
             catch
@@ -86,12 +64,37 @@ namespace Web.App_Start
             }
         }
 
-        /// <summary>
-        /// Load your modules or register your services here!
-        /// </summary>
-        /// <param name="kernel">The kernel.</param>
-        private static void RegisterServices(IKernel kernel)
-        {
-        }        
-    }
+		private static void RegisterHighwayFramework(IKernel kernel) {
+
+			//This is Highway.Data's Context
+			kernel.Bind<IDataContext>().To<DataContext>()
+				.InRequestScope()
+				.WithConstructorArgument(
+					"connectionString",
+					ConfigurationManager.ConnectionStrings["MvcTestConnection"].ConnectionString); //TODO: Need to Create a Configuration object and move this there.
+
+			//This is Highway.Data's Repository
+			kernel.Bind<IRepository>().To<Repository>().InRequestScope();
+
+			//This is Highway.Data's relational mappings Interface, but YOUR implementation
+			kernel.Bind<IMappingConfiguration>().To<CCIMappingConfiguration>();
+
+			////This is Highway.Data's context configuration, by default use the default :-)
+			kernel.Bind<IContextConfiguration>().To<DefaultContextConfiguration>();
+		}
+
+		private static void RegisterLogger(IKernel kernel) {
+			
+			//This is Common.Loggings log interface, feel free to supply anything that uses it *cough* log4net
+			kernel.Bind<ILogger>()
+				.ToMethod(ctx => new LoggerConfiguration()
+					.ReadAppSettings()
+					.Enrich.WithProperty("Server", "Local")
+					.Enrich.WithMachineName()
+					.CreateLogger())
+				.InSingletonScope();
+
+			kernel.Bind<ILog>().To<SerilogCommonLogger>().InSingletonScope();
+		}
+	}
 }
