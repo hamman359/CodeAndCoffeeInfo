@@ -49,8 +49,6 @@ namespace Web.App_Start
                 kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
                 kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-				//TODO: Need to break this up into helper methods. One for Highway and one for Serilog
-
 				RegisterHighwayFramework(kernel);
 
 				RegisterLogger(kernel);
