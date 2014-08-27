@@ -71,6 +71,10 @@
   <ItemGroup>
     <Compile Include="CodeAndCoffeeInfoContext.cs" />
     <Compile Include="Mappings\CodeAndCoffeeInfoMappingConfiguration.cs" />
+    <Compile Include="Migrations\201408270003502_Initialization.cs" />
+    <Compile Include="Migrations\201408270003502_Initialization.Designer.cs">
+      <DependentUpon>201408270003502_Initialization.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +90,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201408270003502_Initialization.resx">
+      <DependentUpon>201408270003502_Initialization.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
