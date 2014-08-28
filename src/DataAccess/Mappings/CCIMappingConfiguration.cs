@@ -13,6 +13,7 @@ namespace CodeAndCoffeeInfo.DataAccess.Mappings {
 		
 		public void ConfigureModelBuilder(DbModelBuilder modelBuilder) {
 
+			modelBuilder.Configurations.Add(new CCSessionMap());
 			// Register mappings here
 			// i.e.
 			// modelBuilder.Configurations.Add(new ItemMap());

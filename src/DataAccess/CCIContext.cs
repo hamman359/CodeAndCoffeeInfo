@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CodeAndCoffeeInfo.Core.Model;
 
 namespace CodeAndCoffeeInfo.DataAccess {
 
@@ -12,6 +13,8 @@ namespace CodeAndCoffeeInfo.DataAccess {
 		public CCIContext() : base("CCI") {
 			
 		}
+
+		public DbSet<CCSession> CCSessions { get; set; }
 
 		// Add DbSets for Root objects here
 		// i.e. 
