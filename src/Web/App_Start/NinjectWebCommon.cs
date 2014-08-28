@@ -69,7 +69,7 @@ namespace Web.App_Start
 				.InRequestScope()
 				.WithConstructorArgument(
 					"connectionString",
-					ConfigurationManager.ConnectionStrings["MvcTestConnection"].ConnectionString); //TODO: Need to Create a Configuration object and move this there.
+					ConfigurationManager.ConnectionStrings["CCIConnection"].ConnectionString); //TODO: Need to Create a Configuration object and move this there.
 
 			//This is Highway.Data's Repository
 			kernel.Bind<IRepository>().To<Repository>().InRequestScope();
