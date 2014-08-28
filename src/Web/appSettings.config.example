@@ -1,0 +1,4 @@
+﻿<appSettings configSource="appSettings.config">
+    <add key="Setting1" value="3.0.0.0" />
+    <add key="Setting2" value="false" />
+</appSettings>

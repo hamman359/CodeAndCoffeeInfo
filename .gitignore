@@ -173,3 +173,4 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 src/Web/connections.config
+src/Web/appSettings.config
