@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Highway.Data;
 
-namespace Web.Controllers {
+namespace CodeAndCoffeeInfo.Web.Controllers {
 
 	public class CCIControllerBase : Controller {
 
