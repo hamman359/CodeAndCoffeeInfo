@@ -317,6 +317,10 @@
       <Project>{339065e8-0a1b-4919-96e9-2f047e0449b0}</Project>
       <Name>DataAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\UtilitiesLibrary\UtilitiesLibrary.csproj">
+      <Project>{018d754f-7a5a-4dec-a013-ca4d809aef27}</Project>
+      <Name>UtilitiesLibrary</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

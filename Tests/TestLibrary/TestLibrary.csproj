@@ -59,6 +59,9 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="PGK.Extensions">
+      <HintPath>..\..\packages\PGK.Extensions.2011.6\lib\PGK.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -70,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataHelpers\CCSessionHelper.cs" />
+    <Compile Include="IdSequencer.cs" />
     <Compile Include="InMemoryDataTestBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -81,6 +85,10 @@
     <ProjectReference Include="..\..\src\Core\Core.csproj">
       <Project>{f48bd43b-f052-4b1f-b661-6aa0076a6eab}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\src\UtilitiesLibrary\UtilitiesLibrary.csproj">
+      <Project>{018d754f-7a5a-4dec-a013-ca4d809aef27}</Project>
+      <Name>UtilitiesLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
