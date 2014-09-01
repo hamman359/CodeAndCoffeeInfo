@@ -5,6 +5,7 @@ using System.Text;
 using CodeAndCoffeeInfo.Core.Model;
 using CodeAndCoffeeInfo.DataAccess.Queries;
 using CodeAndCoffeeInfo.TestLibrary;
+using CodeAndCoffeeInfo.TestLibrary.DataHelpers;
 using Highway.Data.Contexts;
 using NUnit.Framework;
 
@@ -16,8 +17,8 @@ namespace CodeAnCofeeInfo.DataAccess.Queries.Tests {
 		[Test]
 		public void Returns_All_CCSession_Records() {
 
-			m_context.Add(new CCSession() { Name = "Session 1" });
-			m_context.Add(new CCSession() { Name = "Session 2" });
+			m_context.Add(CCSessionHelper.Create());
+			m_context.Add(CCSessionHelper.Create());
 
 			m_context.Commit();
 
