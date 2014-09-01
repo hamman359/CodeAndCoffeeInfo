@@ -6,13 +6,19 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 	using System;
 	using System.Configuration;
 	using System.Web;
+
+	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
 	using CodeAndCoffeeInfo.DataAccess.Mappings;
+
 	using Common.Logging;
 	using Common.Logging.Serilog;
+
 	using Highway.Data;
-	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+
 	using Ninject;
 	using Ninject.Web.Common;
+
 	using Serilog;
 
     public static class NinjectWebCommon 

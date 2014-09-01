@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
+
 using CodeAndCoffeeInfo.Core.Model;
 
 namespace CodeAndCoffeeInfo.DataAccess.Mappings {
