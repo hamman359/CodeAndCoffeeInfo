@@ -5,7 +5,8 @@ namespace CodeAndCoffeeInfo.DataAccess.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<CodeAndCoffeeInfo.DataAccess.CCIContext>
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1812:AvoidUninstantiatedInternalClasses")]
+	internal sealed class Configuration : DbMigrationsConfiguration<CodeAndCoffeeInfo.DataAccess.CCIContext>
     {
         public Configuration()
         {
