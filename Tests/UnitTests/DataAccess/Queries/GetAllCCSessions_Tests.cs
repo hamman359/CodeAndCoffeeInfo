@@ -17,16 +17,18 @@ namespace CodeAnCofeeInfo.DataAccess.Queries.Tests {
 		[Test]
 		public void Returns_All_CCSession_Records() {
 
-			m_context.Add(CCSessionHelper.Create());
-			m_context.Add(CCSessionHelper.Create());
+			const int NUMBER_OF_CCSESSIONS = 2;
 
-			m_context.Commit();
+			var ccSessions = CCSessionHelper.CreateMultiple(NUMBER_OF_CCSESSIONS);
+			CCSessionHelper.Save(m_context, ccSessions);
+
+			//m_context.Commit();
 
 			var query = new GetAllCCSessions();
 
 			var results = query.Execute(m_context);
 
-			Assert.That(results.Count(), Is.EqualTo(2));
+			Assert.That(results.Count(), Is.EqualTo(NUMBER_OF_CCSESSIONS));
 		}
 	}
 }
