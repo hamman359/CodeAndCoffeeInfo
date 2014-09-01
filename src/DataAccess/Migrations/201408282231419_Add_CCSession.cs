@@ -8,16 +8,16 @@ namespace CodeAndCoffeeInfo.DataAccess.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.CCSessions",
+                "dbo.CCSession",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
-                        Description = c.String(),
-                        CreatedOn = c.DateTime(nullable: false),
-                        CreatedBy = c.String(),
-                        UpdatedOn = c.DateTime(nullable: false),
-                        UpdatedBy = c.String(),
+                        Name = c.String(maxLength: 100, nullable: false),
+                        Description = c.String(nullable: true),
+						CreatedOn = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
+                        CreatedBy = c.String(nullable: false),
+						UpdatedOn = c.DateTime(nullable: false, defaultValueSql: "GETDATE()"),
+                        UpdatedBy = c.String(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -25,7 +25,7 @@ namespace CodeAndCoffeeInfo.DataAccess.Migrations
         
         public override void Down()
         {
-            DropTable("dbo.CCSessions");
+            DropTable("dbo.CCSession");
         }
     }
 }

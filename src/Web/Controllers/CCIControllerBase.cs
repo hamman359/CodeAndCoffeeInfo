@@ -9,7 +9,7 @@ namespace CodeAndCoffeeInfo.Web.Controllers {
 
 	public class CCIControllerBase : Controller {
 
-		private readonly IRepository m_repo;
+		protected readonly IRepository m_repo;
 
 		public CCIControllerBase(IRepository repo) {
 			m_repo = repo;
