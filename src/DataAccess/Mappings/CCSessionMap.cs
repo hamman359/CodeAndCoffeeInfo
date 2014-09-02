@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using CodeAndCoffeeInfo.Core.Model;
+using CodeAndCoffeeInfo.UtilitiesLibrary;
 
 namespace CodeAndCoffeeInfo.DataAccess.Mappings {
 
@@ -14,12 +15,12 @@ namespace CodeAndCoffeeInfo.DataAccess.Mappings {
 			this.ToTable("CCSession");
 
 			this.Property(x => x.Name)
-				.HasColumnType("nvarchar")
+				.HasColumnType(DBDataTypes.NVARCHAR)
 				.HasMaxLength(100)
 				.IsRequired();
 
 			this.Property(x => x.Description)
-				.HasColumnType("nvarchar")
+				.HasColumnType(DBDataTypes.NVARCHAR)
 				.IsOptional();
 
 		}

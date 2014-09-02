@@ -15,6 +15,14 @@ namespace CodeAndCoffeeInfo.Web.Controllers {
 		[System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Security", "CA2104:DoNotDeclareReadOnlyMutableReferenceTypes")]
 		protected readonly IRepository m_repo;
 
+		/// <summary>
+		/// This ctor should not be used. It exists only to keep Visual Studio happy
+		/// </summary>
+		[Obsolete("This constructor should not be used. It exists only to keep Visual Studio happy")]
+		public CCIControllerBase() {
+			m_repo = null;
+		}
+
 		public CCIControllerBase(IRepository repo) {
 			m_repo = repo;
 		}

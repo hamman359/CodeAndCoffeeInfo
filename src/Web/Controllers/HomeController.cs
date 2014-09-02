@@ -11,13 +11,13 @@ using Highway.Data;
 
 namespace CodeAndCoffeeInfo.Web.Controllers {
 
-	public class HomeController : CCIControllerBase {
+	public partial class HomeController : CCIControllerBase {
 
 		public HomeController(IRepository repo) : base(repo) {
 			
 		}
 
-		public ActionResult Index() {
+		public virtual ActionResult Index() {
 
 			var sessions = m_repo.Find(new GetAllCCSessions()).ToList();
 			//var sessions = m_repo.Find(Queries.FindAll<CCSession>()).ToList();
@@ -28,13 +28,13 @@ namespace CodeAndCoffeeInfo.Web.Controllers {
 			return View();
 		}
 
-		public ActionResult About() {
+		public virtual ActionResult About() {
 			ViewBag.Message = "Your application description page.";
 
 			return View();
 		}
 
-		public ActionResult Contact() {
+		public virtual ActionResult Contact() {
 			ViewBag.Message = "Your contact page.";
 
 			return View();
