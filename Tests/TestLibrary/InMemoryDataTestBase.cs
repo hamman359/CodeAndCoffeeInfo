@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Highway.Data;
 using Highway.Data.Contexts;
+
 using NUnit.Framework;
 
 namespace CodeAndCoffeeInfo.TestLibrary {
@@ -18,6 +20,12 @@ namespace CodeAndCoffeeInfo.TestLibrary {
 		public void Setup() {
 
 			m_context = new InMemoryDataContext();
+		}
+
+		[TearDown]
+		public void TearDown() {
+
+			m_context.Dispose();
 		}
 	}
 }
