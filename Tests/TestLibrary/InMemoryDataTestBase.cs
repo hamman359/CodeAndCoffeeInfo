@@ -11,7 +11,11 @@ using NUnit.Framework;
 
 namespace CodeAndCoffeeInfo.TestLibrary {
 
-
+	/// <summary>
+	/// Base class to be used by Tests that need to write to or read from a database.
+	/// Provides an InMemoryDataContext that allows for fast and simple tests against a
+	/// real data store. Also disposes of the InMemoryDataContext.
+	/// </summary>
 	public abstract class InMemoryDataTestBase {
 
 		protected IDataContext m_context;

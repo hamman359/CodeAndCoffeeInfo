@@ -111,7 +111,7 @@ namespace CodeAndCoffeeInfo.UtilitiesLibrary {
 		}
 
 		/// <summary>
-		/// Initialises a new instance of the ShortGuid class
+		/// Initializes a new instance of the ShortGuid class
 		/// </summary>
 		/// <returns></returns>
 		public static ShortGuid NewGuid() {

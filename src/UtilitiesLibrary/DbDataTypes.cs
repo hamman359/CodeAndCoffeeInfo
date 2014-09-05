@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace CodeAndCoffeeInfo.UtilitiesLibrary {
 
+	/// <summary>
+	/// Provides constants that represent available Data Types in the database.
+	/// Used to eliminate "Magic String" values in DB Mapping files.
+	/// </summary>
 	public static class DBDataTypes {
 
 		public const string BIT = "bit";

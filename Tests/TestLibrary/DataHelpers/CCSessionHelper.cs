@@ -9,6 +9,9 @@ using Highway.Data;
 
 namespace CodeAndCoffeeInfo.TestLibrary.DataHelpers {
 
+	/// <summary>
+	/// Provides DataHelper methods for creating test data for CCSession objects.
+	/// </summary>
 	public static class CCSessionHelper {
 
 		public static CCSession Create(
