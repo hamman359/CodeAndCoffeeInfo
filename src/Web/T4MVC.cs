@@ -25,12 +25,21 @@ using T4MVC;
 [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
 public static partial class MVC
 {
+    static readonly SysAdminClass s_SysAdmin = new SysAdminClass();
+    public static SysAdminClass SysAdmin { get { return s_SysAdmin; } }
     public static CodeAndCoffeeInfo.Web.Controllers.HomeController Home = new CodeAndCoffeeInfo.Web.Controllers.T4MVC_HomeController();
     public static T4MVC.SharedController Shared = new T4MVC.SharedController();
 }
 
 namespace T4MVC
 {
+    [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
+    public class SysAdminClass
+    {
+        public readonly string Name = "SysAdmin";
+        public CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers.HomeController Home = new CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers.T4MVC_HomeController();
+        public T4MVC.SysAdmin.SharedController Shared = new T4MVC.SysAdmin.SharedController();
+    }
 }
 
 namespace T4MVC
