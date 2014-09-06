@@ -20,6 +20,8 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 	using Ninject.Web.Common;
 
 	using Serilog;
+	using CodeAndCoffeeInfo.Core;
+	using CodeAndCoffeeInfo.Web.Infrastructure;
 
     public static class NinjectWebCommon 
     {
@@ -59,6 +61,8 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 
 				RegisterLogger(kernel);
 
+				RegisterConfigs(kernel);
+
                 return kernel;
             }
             catch
@@ -68,29 +72,29 @@ namespace CodeAndCoffeeInfo.Web.App_Start
             }
         }
 
-		private static void RegisterHighwayFramework(IKernel kernel) {
+		private static void RegisterHighwayFramework(IKernel p_kernel) {
 
 			//This is Highway.Data's Context
-			kernel.Bind<IDataContext>().To<DataContext>()
+			p_kernel.Bind<IDataContext>().To<DataContext>()
 				.InRequestScope()
 				.WithConstructorArgument(
 					"connectionString",
 					ConfigurationManager.ConnectionStrings["CCIConnection"].ConnectionString); //TODO: Need to Create a Configuration object and move this there.
 
 			//This is Highway.Data's Repository
-			kernel.Bind<IRepository>().To<Repository>().InRequestScope();
+			p_kernel.Bind<IRepository>().To<Repository>().InRequestScope();
 
 			//This is Highway.Data's relational mappings Interface, but YOUR implementation
-			kernel.Bind<IMappingConfiguration>().To<CCIMappingConfiguration>();
+			p_kernel.Bind<IMappingConfiguration>().To<CCIMappingConfiguration>();
 
 			////This is Highway.Data's context configuration, by default use the default :-)
-			kernel.Bind<IContextConfiguration>().To<DefaultContextConfiguration>();
+			p_kernel.Bind<IContextConfiguration>().To<DefaultContextConfiguration>();
 		}
 
-		private static void RegisterLogger(IKernel kernel) {
+		private static void RegisterLogger(IKernel p_kernel) {
 			
 			//This is Common.Loggings log interface, feel free to supply anything that uses it *cough* log4net
-			kernel.Bind<ILogger>()
+			p_kernel.Bind<ILogger>()
 				.ToMethod(ctx => new LoggerConfiguration()
 					.ReadAppSettings()
 					.Enrich.WithProperty("Server", "Local")
@@ -98,7 +102,20 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 					.CreateLogger())
 				.InSingletonScope();
 
-			kernel.Bind<ILog>().To<SerilogCommonLogger>().InSingletonScope();
+			p_kernel.Bind<ILog>().To<SerilogCommonLogger>().InSingletonScope();
 		}
+
+		private static void RegisterConfigs(IKernel p_kernel) {
+
+			p_kernel.Bind<ICoreConfig>()
+				.ToMethod(ctx => new CoreConfig(ConfigurationManager.AppSettings))
+				.InRequestScope();
+
+			p_kernel.Bind<IWebConfig>()
+				.ToMethod(ctx => new WebConfig(ConfigurationManager.AppSettings))
+				.InRequestScope();
+		}
+
+
 	}
 }
