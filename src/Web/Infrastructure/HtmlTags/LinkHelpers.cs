@@ -10,7 +10,7 @@ using Microsoft.Web.Mvc;
 
 namespace CodeAndCoffeeInfo.Web.Infrastructure.HtmlTags {
 
-	public static class Link {
+	public static class LinkHelpers {
 
 		public static HtmlTag Link<TController>(
 			this HtmlHelper helper,
