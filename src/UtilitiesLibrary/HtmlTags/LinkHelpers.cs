@@ -8,7 +8,7 @@ using System.Web.Routing;
 using HtmlTags;
 using Microsoft.Web.Mvc;
 
-namespace CodeAndCoffeeInfo.Web.Infrastructure.HtmlTags {
+namespace CodeAndCoffeeInfo.UtilitiesLibrary {
 
 	public static class LinkHelpers {
 
@@ -17,7 +17,7 @@ namespace CodeAndCoffeeInfo.Web.Infrastructure.HtmlTags {
 			Expression<Action<TController>> action,
 			string linkText)
 			where TController : Controller {
-			
+
 			var url = LinkBuilder.BuildUrlFromExpression(
 						  helper.ViewContext.RequestContext,
 						  RouteTable.Routes, action);

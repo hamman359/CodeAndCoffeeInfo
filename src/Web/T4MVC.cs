@@ -38,6 +38,8 @@ namespace T4MVC
     {
         public readonly string Name = "SysAdmin";
         public CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers.HomeController Home = new CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers.T4MVC_HomeController();
+        public CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers.HtmlTagsController HtmlTags = new CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers.T4MVC_HtmlTagsController();
+        public T4MVC.SysAdmin.LinkHelpersController LinkHelpers = new T4MVC.SysAdmin.LinkHelpersController();
         public T4MVC.SysAdmin.SharedController Shared = new T4MVC.SysAdmin.SharedController();
     }
 }

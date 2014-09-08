@@ -4,6 +4,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Test Harness</h2>
 
-TODO: Add list of links to Test Harness pages.
+<h3>Html Tags</h3>
+
+<ul>
+	<li>@(Html.Link<HtmlTagsController>(c => c.Index(), "Links"))</li>
+</ul>
