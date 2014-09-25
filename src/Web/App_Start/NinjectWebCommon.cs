@@ -9,8 +9,6 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 
 	using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
-	using CodeAndCoffeeInfo.DataAccess.Mappings;
-
 	using Common.Logging;
 	using Common.Logging.Serilog;
 
@@ -18,10 +16,21 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 
 	using Ninject;
 	using Ninject.Web.Common;
+	using Ninject.Extensions.Conventions;
 
 	using Serilog;
+
 	using CodeAndCoffeeInfo.Core;
+	using CodeAndCoffeeInfo.DataAccess.Mappings;
 	using CodeAndCoffeeInfo.Web.Infrastructure;
+	using FubuMVC.Core.Runtime;
+	using FubuCore;
+	using HtmlTags.Conventions;
+	using FubuMVC.Core.UI.Security;
+	using FubuMVC.Core.UI;
+	using FubuCore.Binding.Values;
+	using FubuMVC.Core.UI.Elements;
+	using FubuMVC.Core.Http.AspNet;
 
     public static class NinjectWebCommon 
     {
@@ -36,7 +45,7 @@ namespace CodeAndCoffeeInfo.Web.App_Start
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -44,7 +53,7 @@ namespace CodeAndCoffeeInfo.Web.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -62,6 +71,8 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 				RegisterLogger(kernel);
 
 				RegisterConfigs(kernel);
+
+				RegisterFubuConventions(kernel);
 
                 return kernel;
             }
@@ -92,7 +103,7 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 		}
 
 		private static void RegisterLogger(IKernel p_kernel) {
-			
+
 			//This is Common.Loggings log interface, feel free to supply anything that uses it *cough* log4net
 			p_kernel.Bind<ILogger>()
 				.ToMethod(ctx => new LoggerConfiguration()
@@ -116,6 +127,42 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 				.InRequestScope();
 		}
 
+		private static void RegisterFubuConventions(IKernel p_kernel) {
+			p_kernel.Bind(x => {
+				x.FromAssemblyContaining<IFubuRequest>();
+				x.FromAssemblyContaining<ITypeResolver>();
+				x.FromAssemblyContaining<ITagGeneratorFactory>();
+				x.FromAssemblyContaining<IFieldAccessService>();
+			});
 
+			//For<IServiceLocator>().Use<StructureMapServiceLocator>();
+
+			p_kernel.Bind<ISessionState>().To<SimpleSessionState>();
+
+			var htmlConventionLibrary = new HtmlConventionLibrary();
+			htmlConventionLibrary.Import(new DefaultHtmlConventions().Library);
+			p_kernel.Bind<HtmlConventionLibrary>().ToConstant(htmlConventionLibrary);
+
+			p_kernel.Bind<IValueSource>().To<RequestPropertyValueSource>();
+
+			//For<ITagRequestActivator>().AddInstances(c => {
+			//	c.Type<ElementRequestActivator>();
+			//	c.Type<ServiceLocatorTagRequestActivator>();
+			//});
+
+			p_kernel.Bind<ITagRequestActivator>().To<ElementRequestActivator>();
+			p_kernel.Bind<ITagRequestActivator>().To<ServiceLocatorTagRequestActivator>();
+
+			p_kernel.Bind<HttpRequestBase>().ToMethod(x => new HttpRequestWrapper(HttpContext.Current.Request));
+			p_kernel.Bind<HttpContextBase>().ToMethod(x => new HttpContextWrapper(HttpContext.Current));
+
+			p_kernel.Bind<HttpRequest>().ToMethod(x => HttpContext.Current.Request);
+			p_kernel.Bind<HttpContext>().ToMethod(x => HttpContext.Current);
+
+			p_kernel.Bind<ITypeResolverStrategy>().To<TypeResolver.DefaultStrategy>();
+			p_kernel.Bind<IElementNamingConvention>().To<DotNotationElementNamingConvention>();
+			p_kernel.Bind(typeof(ITagGenerator<>)).To(typeof(TagGenerator<>));
+			p_kernel.Bind(typeof(IElementGenerator<>)).To(typeof(ElementGenerator<>));
+		}
 	}
 }
