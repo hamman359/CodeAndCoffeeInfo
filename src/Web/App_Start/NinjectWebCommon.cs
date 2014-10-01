@@ -131,9 +131,16 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 
 			p_kernel.Bind(x => x.FromAssemblyContaining<IFubuRequest>()
 				.SelectAllTypes()
-				.BindWith<Ge
-				)
-
+				.BindDefaultInterface());
+			p_kernel.Bind(x => x.FromAssemblyContaining<ITypeResolver>()
+				.SelectAllTypes()
+				.BindDefaultInterface());
+			p_kernel.Bind(x => x.FromAssemblyContaining<ITagGeneratorFactory>()
+				.SelectAllTypes()
+				.BindDefaultInterface());
+			p_kernel.Bind(x => x.FromAssemblyContaining<IFieldAccessService>()
+				.SelectAllTypes()
+				.BindDefaultInterface());
 			//p_kernel.Bind(x => {
 			//	x.FromAssemblyContaining<IFubuRequest>();
 			//	x.FromAssemblyContaining<ITypeResolver>();

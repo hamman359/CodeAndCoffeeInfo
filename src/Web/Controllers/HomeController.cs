@@ -13,12 +13,14 @@ namespace CodeAndCoffeeInfo.Web.Controllers {
 	public partial class HomeController : CCIControllerBase {
 
 		public HomeController(IRepository repo, IWebConfig config) : base(repo, config) {
-			
+
 		}
 
-		public virtual ActionResult Index() {
+		public virtual ActionResult Index()
+		{
 
-			CCSession sessions = m_repo.Find(new GetAllCCSessions()).First();
+			IEnumerable<CCSession> foo = m_repo.Find(new GetAllCCSessions());
+			CCSession sessions = foo.First();
 
 			//ViewBag.CCSessions = sessions;
 
