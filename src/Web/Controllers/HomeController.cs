@@ -18,11 +18,11 @@ namespace CodeAndCoffeeInfo.Web.Controllers {
 
 		public virtual ActionResult Index() {
 
-			var sessions = m_repo.Find(new GetAllCCSessions()).ToList();
+			CCSession sessions = m_repo.Find(new GetAllCCSessions()).First();
 
-			ViewBag.CCSessions = sessions;
+			//ViewBag.CCSessions = sessions;
 
-			return View();
+			return View(sessions);
 		}
 
 		public virtual ActionResult About() {

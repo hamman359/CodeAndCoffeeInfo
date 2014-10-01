@@ -1,4 +1,6 @@
-﻿@{
+﻿@model CodeAndCoffeeInfo.Core.Model.CCSession
+
+@{
     ViewBag.Title = "Home Page";
 }
 
@@ -11,8 +13,23 @@
 <div class="row">
 	<h2>Sessions</h2>
 	<ul>
-	@foreach(var ccSession in ViewBag.CCSessions as List<CodeAndCoffeeInfo.Core.Model.CCSession>) {
-		<li>@ccSession.Name</li>
-	}
+	@*@foreach(var ccSession in Model) {*@
+		<li>@Model.Name</li>
+	@*  *@}
 	</ul>
 </div>
+
+<form action="/" method="post">
+	<div class="form-group">
+		@Html.Label(m => m.Name).AddClass("col-md-2 control-label")
+		<div class="col-md-10">
+			@Html.Input(m => m.Name).AddClass("form-control")
+		</div>
+	</div>
+	<div class="form-group">
+		@Html.LabelFor(m => m.Name, new { @class = "col-md-2 control-label" })
+		<div class="col-md-10">
+			@Html.PasswordFor(m => m.Name, new { @class = "form-control" })
+		</div>
+	</div>
+</form>

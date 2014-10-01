@@ -128,14 +128,19 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 		}
 
 		private static void RegisterFubuConventions(IKernel p_kernel) {
-			p_kernel.Bind(x => {
-				x.FromAssemblyContaining<IFubuRequest>();
-				x.FromAssemblyContaining<ITypeResolver>();
-				x.FromAssemblyContaining<ITagGeneratorFactory>();
-				x.FromAssemblyContaining<IFieldAccessService>();
-			});
 
-			//For<IServiceLocator>().Use<StructureMapServiceLocator>();
+			p_kernel.Bind(x => x.FromAssemblyContaining<IFubuRequest>()
+				.SelectAllTypes()
+				.BindWith<Ge
+				)
+
+			//p_kernel.Bind(x => {
+			//	x.FromAssemblyContaining<IFubuRequest>();
+			//	x.FromAssemblyContaining<ITypeResolver>();
+			//	x.FromAssemblyContaining<ITagGeneratorFactory>();
+			//	x.FromAssemblyContaining<IFieldAccessService>();
+				
+			//});
 
 			p_kernel.Bind<ISessionState>().To<SimpleSessionState>();
 
@@ -144,11 +149,6 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 			p_kernel.Bind<HtmlConventionLibrary>().ToConstant(htmlConventionLibrary);
 
 			p_kernel.Bind<IValueSource>().To<RequestPropertyValueSource>();
-
-			//For<ITagRequestActivator>().AddInstances(c => {
-			//	c.Type<ElementRequestActivator>();
-			//	c.Type<ServiceLocatorTagRequestActivator>();
-			//});
 
 			p_kernel.Bind<ITagRequestActivator>().To<ElementRequestActivator>();
 			p_kernel.Bind<ITagRequestActivator>().To<ServiceLocatorTagRequestActivator>();
