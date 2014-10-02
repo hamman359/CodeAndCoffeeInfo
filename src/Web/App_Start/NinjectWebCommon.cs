@@ -17,20 +17,26 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 	using Ninject;
 	using Ninject.Web.Common;
 	using Ninject.Extensions.Conventions;
+	using Ninject.Extensions.Conventions.BindingGenerators;
 
 	using Serilog;
 
 	using CodeAndCoffeeInfo.Core;
 	using CodeAndCoffeeInfo.DataAccess.Mappings;
 	using CodeAndCoffeeInfo.Web.Infrastructure;
-	using FubuMVC.Core.Runtime;
+
 	using FubuCore;
-	using HtmlTags.Conventions;
-	using FubuMVC.Core.UI.Security;
-	using FubuMVC.Core.UI;
 	using FubuCore.Binding.Values;
-	using FubuMVC.Core.UI.Elements;
 	using FubuMVC.Core.Http.AspNet;
+	using FubuMVC.Core.Runtime;
+	using FubuMVC.Core.UI;
+	using FubuMVC.Core.UI.Elements;
+	using FubuMVC.Core.UI.Security;
+
+	using HtmlTags.Conventions;
+	using FubuCore.Binding;
+	using FubuCore.Configuration;
+	using FubuCore.Binding.InMemory;
 
     public static class NinjectWebCommon 
     {
@@ -129,25 +135,24 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 
 		private static void RegisterFubuConventions(IKernel p_kernel) {
 
-			p_kernel.Bind(x => x.FromAssemblyContaining<IFubuRequest>()
-				.SelectAllTypes()
-				.BindDefaultInterface());
-			p_kernel.Bind(x => x.FromAssemblyContaining<ITypeResolver>()
-				.SelectAllTypes()
-				.BindDefaultInterface());
-			p_kernel.Bind(x => x.FromAssemblyContaining<ITagGeneratorFactory>()
-				.SelectAllTypes()
-				.BindDefaultInterface());
-			p_kernel.Bind(x => x.FromAssemblyContaining<IFieldAccessService>()
-				.SelectAllTypes()
-				.BindDefaultInterface());
-			//p_kernel.Bind(x => {
-			//	x.FromAssemblyContaining<IFubuRequest>();
-			//	x.FromAssemblyContaining<ITypeResolver>();
-			//	x.FromAssemblyContaining<ITagGeneratorFactory>();
-			//	x.FromAssemblyContaining<IFieldAccessService>();
-				
-			//});
+			p_kernel.Bind(x =>
+			{
+				x.FromAssemblyContaining<IFubuRequest>()
+					.SelectAllTypes()
+					.BindDefaultInterface();
+				x.FromAssemblyContaining<ITagGeneratorFactory>()
+					.SelectAllTypes()
+					.BindDefaultInterface();
+				x.FromAssemblyContaining<IFieldAccessService>()
+					.SelectAllTypes()
+					.BindDefaultInterface();
+			});
+
+			p_kernel.Bind<IRequestData>().ToConstructor<RequestData>(x => new RequestData(x.Inject<IValueSource>()));
+			p_kernel.Bind<IObjectResolver>().To<ObjectResolver>();
+			p_kernel.Bind<IServiceLocator>().To<InMemoryServiceLocator>();
+			p_kernel.Bind<IBindingLogger>().To<NulloBindingLogger>();
+			p_kernel.Bind<FubuCore.Logging.ILogger>().To<FubuCore.Logging.Logger>();
 
 			p_kernel.Bind<ISessionState>().To<SimpleSessionState>();
 
@@ -169,7 +174,7 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 			p_kernel.Bind<ITypeResolverStrategy>().To<TypeResolver.DefaultStrategy>();
 			p_kernel.Bind<IElementNamingConvention>().To<DotNotationElementNamingConvention>();
 			p_kernel.Bind(typeof(ITagGenerator<>)).To(typeof(TagGenerator<>));
-			p_kernel.Bind(typeof(IElementGenerator<>)).To(typeof(ElementGenerator<>));
+			//p_kernel.Bind(typeof(IElementGenerator<>)).To(typeof(ElementGenerator<>));
 		}
 	}
 }

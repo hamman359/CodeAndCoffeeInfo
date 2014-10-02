@@ -18,11 +18,7 @@ namespace CodeAndCoffeeInfo.Web.Controllers {
 
 		public virtual ActionResult Index()
 		{
-
-			IEnumerable<CCSession> foo = m_repo.Find(new GetAllCCSessions());
-			CCSession sessions = foo.First();
-
-			//ViewBag.CCSessions = sessions;
+			IList<CCSession> sessions = m_repo.Find(new GetAllCCSessions()).ToList();
 
 			return View(sessions);
 		}
