@@ -73,13 +73,15 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNamesClass
         {
-            public readonly string Index = "Index";
+            public readonly string TagConventions = "TagConventions";
+            public readonly string Links = "Links";
         }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         public class ActionNameConstants
         {
-            public const string Index = "Index";
+            public const string TagConventions = "TagConventions";
+            public const string Links = "Links";
         }
 
 
@@ -93,9 +95,11 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
-                public readonly string Index = "Index";
+                public readonly string Links = "Links";
+                public readonly string TagConventions = "TagConventions";
             }
-            public readonly string Index = "~/Areas/SysAdmin/Views/HtmlTags/Index.cshtml";
+            public readonly string Links = "~/Areas/SysAdmin/Views/HtmlTags/Links.cshtml";
+            public readonly string TagConventions = "~/Areas/SysAdmin/Views/HtmlTags/TagConventions.cshtml";
         }
     }
 
@@ -105,13 +109,24 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers
         public T4MVC_HtmlTagsController() : base(Dummy.Instance) { }
 
         [NonAction]
-        partial void IndexOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+        partial void TagConventionsOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
 
         [NonAction]
-        public override System.Web.Mvc.ActionResult Index()
+        public override System.Web.Mvc.ActionResult TagConventions()
         {
-            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Index);
-            IndexOverride(callInfo);
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.TagConventions);
+            TagConventionsOverride(callInfo);
+            return callInfo;
+        }
+
+        [NonAction]
+        partial void LinksOverride(T4MVC_System_Web_Mvc_ActionResult callInfo);
+
+        [NonAction]
+        public override System.Web.Mvc.ActionResult Links()
+        {
+            var callInfo = new T4MVC_System_Web_Mvc_ActionResult(Area, Name, ActionNames.Links);
+            LinksOverride(callInfo);
             return callInfo;
         }
 

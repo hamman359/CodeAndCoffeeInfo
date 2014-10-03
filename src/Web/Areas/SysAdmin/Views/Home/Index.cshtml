@@ -1,13 +1,13 @@
 ﻿
 @{
     ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Test Harness</h2>
 
-<h3>Html Tags</h3>
+<h3>Html Helpers</h3>
 
 <ul>
-	<li>@(Html.Link<HtmlTagsController>(c => c.Index(), "Links"))</li>
+	<li>@(Html.Link<HtmlTagsController>(c => c.Links(), "Link Helpers"))</li>
+    <li>@(Html.Link<HtmlTagsController>(c => c.TagConventions(), "Html Tag Conventions"))</li>
 </ul>

@@ -334,9 +334,10 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Areas\SysAdmin\Views\Home\Index.cshtml" />
-    <Content Include="Areas\SysAdmin\Views\HtmlTags\Index.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\HtmlTags\TagConventions.cshtml" />
     <Content Include="Areas\SysAdmin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\SysAdmin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SysAdmin\Views\HtmlTags\Links.cshtml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
     <Content Include="Scripts\jquery-2.1.1.min.js" />

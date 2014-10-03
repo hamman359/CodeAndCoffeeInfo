@@ -36,7 +36,9 @@ namespace T4MVC.SysAdmin
             public _ViewNamesClass ViewNames { get { return s_ViewNames; } }
             public class _ViewNamesClass
             {
+                public readonly string _Layout = "_Layout";
             }
+            public readonly string _Layout = "~/Areas/SysAdmin/Views/Shared/_Layout.cshtml";
         }
     }
 

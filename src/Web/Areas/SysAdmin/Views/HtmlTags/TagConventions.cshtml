@@ -1,0 +1,131 @@
+﻿@model CodeAndCoffeeInfo.Web.Areas.SysAdmin.Models.TagsTest
+
+@{
+    ViewBag.Title = "Html Tags Conventions";
+}
+
+<h2>Html Tags Conventions</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label(model => model.Name)
+            <div class="col-md-10">
+                @Html.Input(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Email)
+            <div class="col-md-10">
+                @Html.Input(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Password)
+            <div class="col-md-10">
+                @Html.Input(model => model.Password)
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.ConfirmPassword)
+            <div class="col-md-10">
+                @Html.Input(model => model.ConfirmPassword)
+                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.RememberMe)
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.Input(model => model.RememberMe)
+                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Phone)
+            <div class="col-md-10">
+                @Html.Input(model => model.Phone)
+                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Url)
+            <div class="col-md-10">
+                @Html.Input(model => model.Url)
+                @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.StartDate)
+            <div class="col-md-10">
+                @Html.Input(model => model.StartDate)
+                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Guid)
+            <div class="col-md-10">
+                @Html.Input(model => model.Guid)
+                @Html.ValidationMessageFor(model => model.Guid, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Decimal)
+            <div class="col-md-10">
+                @Html.Input(model => model.Decimal)
+                @Html.ValidationMessageFor(model => model.Decimal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Integer)
+            <div class="col-md-10">
+                @Html.Input(model => model.Integer)
+                @Html.ValidationMessageFor(model => model.Integer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Float)
+            <div class="col-md-10">
+                @Html.Input(model => model.Float)
+                @Html.ValidationMessageFor(model => model.Float, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label(model => model.Double)
+            <div class="col-md-10">
+                @Html.Input(model => model.Double)
+                @Html.ValidationMessageFor(model => model.Double, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @(Html.Link<HomeController>(c => c.Index(), "Back to List"))
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
