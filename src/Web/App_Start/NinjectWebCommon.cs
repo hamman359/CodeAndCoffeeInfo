@@ -37,6 +37,7 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 	using FubuCore.Binding;
 	using FubuCore.Configuration;
 	using FubuCore.Binding.InMemory;
+	using CodeAndCoffeeInfo.UtilitiesLibrary.HtmlTags;
 
     public static class NinjectWebCommon 
     {
@@ -157,7 +158,8 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 			p_kernel.Bind<ISessionState>().To<SimpleSessionState>();
 
 			var htmlConventionLibrary = new HtmlConventionLibrary();
-			htmlConventionLibrary.Import(new DefaultHtmlConventions().Library);
+			var conventions = new OverrideHtmlConventions();
+			htmlConventionLibrary.Import(conventions.Library);
 			p_kernel.Bind<HtmlConventionLibrary>().ToConstant(htmlConventionLibrary);
 
 			p_kernel.Bind<IValueSource>().To<RequestPropertyValueSource>();

@@ -142,6 +142,7 @@
     <Compile Include="EnumerableExtensions.cs" />
     <Compile Include="HtmlTags\FubuAspNetTagExtensions.cs" />
     <Compile Include="HtmlTags\LinkHelpers.cs" />
+    <Compile Include="HtmlTags\OverrideHtmlConventions.cs" />
     <Compile Include="ListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShortGuid.cs" />

@@ -20,7 +20,7 @@ namespace CodeAndCoffeeInfo.Web.Controllers {
 		{
 			IList<CCSession> sessions = m_repo.Find(new GetAllCCSessions()).ToList();
 
-			return View(sessions);
+			return View(sessions.First());
 		}
 
 		public virtual ActionResult About() {
