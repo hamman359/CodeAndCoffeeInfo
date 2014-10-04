@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Drawing;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,8 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Models
 {
 	public class TagsTest
 	{
+		//TODO: Need both a property with a display name and without
+		[Display(Name = "Full Name")]
 		public string Name { get; set; }
 		public string Email { get; set; }
 		public string Password { get; set; }
@@ -29,6 +32,9 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Models
 		public int Integer { get; set; }
 		public float Float { get; set; }
 		public double Double { get; set; }
+
+		[HiddenInput]
+		public string Hidden { get { return "This field should be hidden"; } }
 	}
 }
 

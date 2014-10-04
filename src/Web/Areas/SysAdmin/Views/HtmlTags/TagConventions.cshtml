@@ -15,110 +15,158 @@
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.Label(model => model.Name)
+            @Html.Label(m => m.Name)
             <div class="col-md-10">
-                @Html.Input(model => model.Name)
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Email)
+            @Html.Label(m => m.Email)
             <div class="col-md-10">
-                @Html.Input(model => model.Email)
-                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Password)
+            @Html.Label(m => m.Password)
             <div class="col-md-10">
-                @Html.Input(model => model.Password)
-                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.ConfirmPassword)
+            @Html.Label(m => m.ConfirmPassword)
             <div class="col-md-10">
-                @Html.Input(model => model.ConfirmPassword)
-                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                @Html.Input(m => m.ConfirmPassword)
+                @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.RememberMe)
+            @Html.Label(m => m.RememberMe)
             <div class="col-md-10">
                 <div class="checkbox">
-                    @Html.Input(model => model.RememberMe)
-                    @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                    @Html.Input(m => m.RememberMe)
+                    @Html.ValidationMessageFor(m => m.RememberMe, "", new { @class = "text-danger" })
                 </div>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Phone)
+            @Html.Label(m => m.Phone)
             <div class="col-md-10">
-                @Html.Input(model => model.Phone)
-                @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Phone)
+                @Html.ValidationMessageFor(m => m.Phone, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Url)
+            @Html.Label(m => m.Url)
             <div class="col-md-10">
-                @Html.Input(model => model.Url)
-                @Html.ValidationMessageFor(model => model.Url, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Url)
+                @Html.ValidationMessageFor(m => m.Url, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.StartDate)
+            @Html.Label(m => m.StartDate)
             <div class="col-md-10">
-                @Html.Input(model => model.StartDate)
-                @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                @Html.Input(m => m.StartDate)
+                @Html.ValidationMessageFor(m => m.StartDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+		<div class="form-group">
+			@Html.Label(m => m.LocalDate)
+			<div class="col-md-10">
+				@Html.Input(m => m.LocalDate)
+				@Html.ValidationMessageFor(m => m.LocalDate, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.Label(m => m.LocalTime)
+			<div class="col-md-10">
+				@Html.Input(m => m.LocalTime)
+				@Html.ValidationMessageFor(m => m.LocalTime, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.Label(m => m.LocalDateTime)
+			<div class="col-md-10">
+				@Html.Input(m => m.LocalDateTime)
+				@Html.ValidationMessageFor(m => m.LocalDateTime, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.Label(m => m.OffsetDateTime)
+			<div class="col-md-10">
+				@Html.Input(m => m.OffsetDateTime)
+				@Html.ValidationMessageFor(m => m.OffsetDateTime, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+        <div class="form-group">
+            @Html.Label(m => m.Guid)
+            <div class="col-md-10">
+                @Html.Input(m => m.Guid)
+                @Html.ValidationMessageFor(m => m.Guid, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Guid)
+            @Html.Label(m => m.Decimal)
             <div class="col-md-10">
-                @Html.Input(model => model.Guid)
-                @Html.ValidationMessageFor(model => model.Guid, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Decimal)
+                @Html.ValidationMessageFor(m => m.Decimal, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Decimal)
+            @Html.Label(m => m.Integer)
             <div class="col-md-10">
-                @Html.Input(model => model.Decimal)
-                @Html.ValidationMessageFor(model => model.Decimal, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Integer)
+                @Html.ValidationMessageFor(m => m.Integer, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Integer)
+            @Html.Label(m => m.Float)
             <div class="col-md-10">
-                @Html.Input(model => model.Integer)
-                @Html.ValidationMessageFor(model => model.Integer, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Float)
+                @Html.ValidationMessageFor(m => m.Float, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.Label(model => model.Float)
+            @Html.Label(m => m.Double)
             <div class="col-md-10">
-                @Html.Input(model => model.Float)
-                @Html.ValidationMessageFor(model => model.Float, "", new { @class = "text-danger" })
+                @Html.Input(m => m.Double)
+                @Html.ValidationMessageFor(m => m.Double, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.Label(model => model.Double)
-            <div class="col-md-10">
-                @Html.Input(model => model.Double)
-                @Html.ValidationMessageFor(model => model.Double, "", new { @class = "text-danger" })
-            </div>
-        </div>
+		<div class="form-group">
+			@Html.Label(m => m.Hidden)
+			<div class="col-md-10">
+				@Html.Input(m => m.Hidden)
+				@Html.ValidationMessageFor(m => m.Hidden, "", new { @class = "text-danger" })
+			</div>
+		</div>
+
+		<div class="form-group">
+			@Html.Label(m => m.EnumValue)
+			<div class="col-md-10">
+				@Html.Input(m => m.EnumValue)
+				@Html.ValidationMessageFor(m => m.EnumValue, "", new { @class = "text-danger" })
+			</div>
+		</div>
     </div>
 }
 
