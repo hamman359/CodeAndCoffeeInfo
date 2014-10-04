@@ -235,9 +235,6 @@
     <Compile Include="SysAdmin.HtmlTagsController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
-    <Compile Include="SysAdmin.LinkHelpersController.generated.cs">
-      <DependentUpon>T4MVC.tt</DependentUpon>
-    </Compile>
     <Compile Include="SysAdmin.SharedController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
@@ -376,7 +373,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\SysAdmin\Views\LinkHelpers\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\App\" />
   </ItemGroup>
