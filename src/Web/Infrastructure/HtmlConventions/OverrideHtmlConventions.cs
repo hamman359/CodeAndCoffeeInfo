@@ -35,10 +35,10 @@ namespace CodeAndCoffeeInfo.UtilitiesLibrary.HtmlTags {
 			Editors.IfPropertyIs<Color>().Attr("type", "color");
 
 			// Dates & Times
-			Editors.IfPropertyIs<DateTime>().Attr("type", "date");
-			Editors.IfPropertyIs<LocalDate>().Attr("type", "date");
-			Editors.IfPropertyIs<LocalTime>().Attr("type", "time");
-			Editors.IfPropertyIs<LocalDateTime>().Attr("type", "datetime-local");
+			Editors.IfPropertyIs<DateTime>().Attr("type", "datetime");
+			Editors.IfPropertyIs<LocalDate>().Attr("type", "datetime"); //"date");
+			Editors.IfPropertyIs<LocalTime>().Attr("type", "datetime"); //"time");
+			Editors.IfPropertyIs<LocalDateTime>().Attr("type", "datetime"); //"datetime-local");
 			Editors.IfPropertyIs<OffsetDateTime>().Attr("type", "datetime");
 
 			// Email
@@ -97,31 +97,8 @@ namespace CodeAndCoffeeInfo.UtilitiesLibrary.HtmlTags {
 				.Attr("type", "url");
 
 
-		}
-	}
 
-	// Our modifier
-	public class EnumDropDownModifier : IElementModifier {
-
-		public bool Matches(ElementRequest token) {
-			return token.Accessor.PropertyType.IsEnum;
-		}
-
-		public void Modify(ElementRequest request) {
-			var enumType = request.Accessor.PropertyType;
-
-			request.CurrentTag.RemoveAttr("type");
-			request.CurrentTag.TagName("select");
-			request.CurrentTag.Append(new HtmlTag("option"));
-
-			foreach(var value in Enum.GetValues(enumType)) {
-
-				var optionTag = new HtmlTag("option")
-					.Value(value.ToString())
-					.Text(Enum.GetName(enumType, value));
-				request.CurrentTag.Append(
-					optionTag);
-			}
+			Editors.Modifier<EnitityDropDownModifier>();
 		}
 	}
 

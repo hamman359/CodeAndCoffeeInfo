@@ -75,6 +75,18 @@
     <Reference Include="Bottles">
       <HintPath>..\..\packages\Bottles.1.0.0.441\lib\Bottles.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\packages\Common.Logging.2.2.0\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core">
+      <HintPath>..\..\packages\Common.Logging.Core.2.2.0\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\packages\EntityFramework.6.0.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="FubuCore">
       <HintPath>..\..\packages\FubuCore.1.0.0.225\lib\FubuCore.dll</HintPath>
     </Reference>
@@ -90,8 +102,20 @@
     <Reference Include="FubuMVC.Core.View">
       <HintPath>..\..\packages\FubuMVC.Core.View.1.0.0.534\lib\net40\FubuMVC.Core.View.dll</HintPath>
     </Reference>
+    <Reference Include="Highway.Data">
+      <HintPath>..\..\packages\Highway.Data.5.1.1.0\lib\net40\Highway.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Highway.Data.EntityFramework">
+      <HintPath>..\..\packages\Highway.Data.EntityFramework.5.1.1.0\lib\net40\Highway.Data.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Highway.Pavement">
+      <HintPath>..\..\packages\Highway.Pavement.0.3.0.0\lib\net40\Highway.Pavement.dll</HintPath>
+    </Reference>
     <Reference Include="HtmlTags">
       <HintPath>..\..\packages\HtmlTags.2.1.0.183\lib\4.0\HtmlTags.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.2\lib\portable-windows8+net40+sl5+windowsphone8\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -145,9 +169,7 @@
   <ItemGroup>
     <Compile Include="DbDataTypes.cs" />
     <Compile Include="EnumerableExtensions.cs" />
-    <Compile Include="HtmlTags\FubuAspNetTagExtensions.cs" />
     <Compile Include="HtmlTags\LinkHelpers.cs" />
-    <Compile Include="HtmlTags\OverrideHtmlConventions.cs" />
     <Compile Include="ListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShortGuid.cs" />

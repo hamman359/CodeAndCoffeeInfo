@@ -5,6 +5,7 @@ using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CodeAndCoffeeInfo.Core.Model;
 using NodaTime;
 
 namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Models
@@ -35,6 +36,8 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Models
 
 		[HiddenInput]
 		public string Hidden { get { return "This field should be hidden"; } }
+
+		public CCSession SelectedSession { get; set; }
 	}
 }
 

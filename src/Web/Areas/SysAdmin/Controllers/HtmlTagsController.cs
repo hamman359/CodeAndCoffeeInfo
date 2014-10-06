@@ -3,15 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using CodeAndCoffeeInfo.Core.Model;
+using CodeAndCoffeeInfo.DataAccess.Queries;
 using CodeAndCoffeeInfo.Web.Areas.SysAdmin.Models;
+using Highway.Data;
 using NodaTime;
 
 namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers
 {
 	public partial class HtmlTagsController : Controller
     {
+		private readonly IRepository m_repo;
+		public HtmlTagsController(IRepository repo) {
+			m_repo = repo;
+		}
+
 		// GET: SysAdmin/HtmlTags/TagConventions
 		public virtual ActionResult TagConventions() {
+
+			var session =  m_repo.Find(new GetAllCCSessions()).First();
 
 			LocalDateTime localDateTime = new LocalDateTime(2014, 1, 1, 7, 23, 47, 42);
 
@@ -33,7 +43,8 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers
 				Decimal = 3.14m,
 				Integer = 42,
 				Float = 6.6666f,
-				Double = 3.3333
+				Double = 3.3333,
+				SelectedSession = session
 			};
 
 			return View(MVC.SysAdmin.HtmlTags.Views.TagConventions, model);

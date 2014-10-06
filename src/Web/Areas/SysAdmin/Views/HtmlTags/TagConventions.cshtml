@@ -167,6 +167,14 @@
 				@Html.ValidationMessageFor(m => m.EnumValue, "", new { @class = "text-danger" })
 			</div>
 		</div>
+
+		<div class="form-group">
+			@Html.Label(m => m.SelectedSession)
+			<div class="col-md-10">
+				@Html.Input(m => m.SelectedSession)
+				@Html.ValidationMessageFor(m => m.SelectedSession, "", new { @class = "text-danger" })
+			</div>
+		</div>
     </div>
 }
 

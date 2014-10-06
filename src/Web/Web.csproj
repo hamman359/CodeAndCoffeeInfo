@@ -224,6 +224,10 @@
     <Compile Include="HomeController.generated.cs">
       <DependentUpon>T4MVC.tt</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\HtmlConventions\EnitityDropDownModifier.cs" />
+    <Compile Include="Infrastructure\HtmlConventions\EnumDropDownModifier.cs" />
+    <Compile Include="Infrastructure\HtmlConventions\FubuAspNetTagExtensions.cs" />
+    <Compile Include="Infrastructure\HtmlConventions\OverrideHtmlConventions.cs" />
     <Compile Include="Infrastructure\WebConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SharedController.generated.cs">

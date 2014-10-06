@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace CodeAndCoffeeInfo.Core.Model {
 
@@ -14,5 +13,7 @@ namespace CodeAndCoffeeInfo.Core.Model {
 		public string CreatedBy { get; set; }
 		public DateTime UpdatedOn { get; set; }
 		public string UpdatedBy { get; set; }
+
+		public abstract string DisplayValue { get; }
 	}
 }

@@ -26,9 +26,6 @@ namespace CodeAndCoffeeInfo.Web.Areas.SysAdmin.Controllers
     public partial class HtmlTagsController
     {
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
-        public HtmlTagsController() { }
-
-        [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]
         protected HtmlTagsController(Dummy d) { }
 
         [GeneratedCode("T4MVC", "2.0"), DebuggerNonUserCode]

@@ -12,13 +12,13 @@ namespace CodeAndCoffeeInfo.DataAccess {
 	public class CCIContext : DbContext {
 
 		public CCIContext() : base("CCI") {
-			
+
 		}
 
 		public DbSet<CCSession> CCSessions { get; set; }
 
 		// Add DbSets for Root objects here
-		// i.e. 
+		// i.e.
 		// public DbSet<Item> Items { get; set; }
 	}
 }

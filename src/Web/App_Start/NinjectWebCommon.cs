@@ -176,7 +176,6 @@ namespace CodeAndCoffeeInfo.Web.App_Start
 			p_kernel.Bind<ITypeResolverStrategy>().To<TypeResolver.DefaultStrategy>();
 			p_kernel.Bind<IElementNamingConvention>().To<DotNotationElementNamingConvention>();
 			p_kernel.Bind(typeof(ITagGenerator<>)).To(typeof(TagGenerator<>));
-			//p_kernel.Bind(typeof(IElementGenerator<>)).To(typeof(ElementGenerator<>));
 		}
 	}
 }
